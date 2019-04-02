@@ -1,0 +1,111 @@
+<template>
+  <div class="markdown-container">
+    <div class="title">Markdown export</div>
+    <br>
+    <div class="controls">
+      <a
+        :href="downloadUrl"
+        :download="downloadFilename"
+        ref="downloadLink"
+        class="button"
+        @click="saveMarkdown"
+      >Save</a>
+      <a
+        href="javascript:void(0)"
+        class="button"
+        v-clipboard:copy="markdown"
+        v-clipboard:success="onCopy"
+        v-clipboard:error="onError"
+      >Copy</a>
+    </div>
+    <div class="text">{{ markdown }}</div>
+  </div>
+</template>
+<script>
+import { mapState } from "vuex";
+import TurdownService from "turndown";
+export default {
+  name: "MarkdownModal",
+  data: function() {
+    return {
+      turndown: new TurdownService(),
+      markdown: "",
+      downloadUrl: "javascript:void(0)",
+      downloadFilename: `notetab_${Date.now()}.md`
+    };
+  },
+  computed: {
+    ...mapState(["markup"])
+  },
+  created() {
+    this.markdown = this.turndown.turndown(this.markup);
+    let file = new Blob([this.markdown], { type: "text/markdown" });
+    this.downloadUrl = URL.createObjectURL(file);
+  },
+  methods: {
+    saveMarkdown() {},
+    onCopy(e) {
+      // Show this on a popup like the bootstrap ones
+      alert("Copied to clipboard.");
+    },
+    onError(e) {
+      // Show this on a popup like the bootstrap ones
+      alert("Failed to copy to clipboard.");
+    }
+  }
+};
+</script>
+<style scoped>
+.markdown-container {
+  padding: 20px;
+  background: #f4f2f0;
+}
+.title {
+  color: black;
+  font-size: 15pt;
+}
+.controls {
+  width: 100%;
+  height: auto;
+}
+.text {
+  height: 40vh;
+  width: 100%;
+  background: #f4f2f0;
+  box-shadow: inset 0px 1px 4px -1px rgba(0, 0, 0, 0.75);
+  margin-top: 1vh;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #636363;
+  font-size: 9pt;
+  padding: 10px;
+}
+a.button {
+  display: inline-block;
+  padding: 0.7em 1.4em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.15em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 9pt;
+  background-color: #3369ff;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+  text-align: center;
+  position: relative;
+}
+a.button:active {
+  top: 0.1em;
+}
+@media all and (max-width: 30em) {
+  a.button {
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+</style>
+
+
