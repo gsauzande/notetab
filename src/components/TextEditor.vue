@@ -1,9 +1,10 @@
 <template>
   <div class="editor">
-    <div contenteditable="true" @keyup="onKeyUp" ref="myText"></div>
+    <div contenteditable="true" @keyup="onKeyUp" ref="myText" :class="currentFont || ''"></div>
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "TextEditor",
   data: function() {
@@ -11,6 +12,7 @@ export default {
       markdown: ""
     };
   },
+  computed: mapState(["currentFont"]),
   methods: {
     onKeyUp() {
       this.$store.dispatch("setMarkdown", this.$refs.myText.innerHTML);

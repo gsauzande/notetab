@@ -19,11 +19,11 @@ export default {
   float: left;
   height: 100vh;
   width: 20%;
-  color: white;
-  /* background: #f3f2f0; */
+  color: black;
+  background: #f3f2f0;
   padding-left: 20px;
-  background: green;
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.19), 0 0px 1px rgba(0, 0, 0, 0.23);
+  /* background: green; */
+  /* box-shadow: 0 0px 5px rgba(0, 0, 0, 0.19), 0 0px 1px rgba(0, 0, 0, 0.23); */
 }
 </style>
 

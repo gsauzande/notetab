@@ -53,11 +53,43 @@ body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
 }
+
 @font-face {
-  font-family: RobotoLight;
-  src: url("assets/fonts/Roboto-Light.ttf");
-  font-weight: bold;
+  font-family: Righteous;
+  src: url("assets/fonts/Righteous-Regular.ttf");
 }
+@font-face {
+  font-family: OpenSans;
+  src: url("assets/fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: Pacifico;
+  src: url("assets/fonts/Pacifico-Regular.ttf");
+}
+@font-face {
+  font-family: TravelingTypewriter;
+  src: url("assets/fonts/TravelingTypewriter.ttf");
+}
+@font-face {
+  font-family: Ubuntu;
+  src: url("assets/fonts/Ubuntu-Regular.ttf");
+}
+.righteous {
+  font-family: Righteous !important;
+}
+.open-sans {
+  font-family: OpenSans !important;
+}
+.pacifico {
+  font-family: Pacifico !important;
+}
+.traveling-typewriter {
+  font-family: TravelingTypewriter !important;
+}
+.ubuntu {
+  font-family: Ubuntu !important;
+}
+
 .sidebar img {
   width: 16px;
   margin: 0 auto;
