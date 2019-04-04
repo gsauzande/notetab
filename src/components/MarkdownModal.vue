@@ -1,5 +1,6 @@
 <template>
   <div class="markdown-container">
+    <v-dialog style="color:#000000"/>
     <div class="title">Markdown export</div>
     <br>
     <div class="controls">
@@ -44,13 +45,28 @@ export default {
   },
   methods: {
     saveMarkdown() {},
-    onCopy(e) {
-      // Show this on a popup like the bootstrap ones
-      alert("Copied to clipboard.");
+    onCopy() {
+      this.$modal.show("dialog", {
+        title: "Copied!",
+        text: "The text has been copied to your clipboard",
+        buttons: [
+          {
+            title: "Close"
+          }
+        ]
+      });
     },
     onError(e) {
-      // Show this on a popup like the bootstrap ones
-      alert("Failed to copy to clipboard.");
+      console.error(e);
+      this.$modal.show("dialog", {
+        title: "Error!",
+        text: "Failed to copy text. Please try again or copy manually",
+        buttons: [
+          {
+            title: "Close"
+          }
+        ]
+      });
     }
   }
 };

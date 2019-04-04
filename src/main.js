@@ -6,7 +6,7 @@ import store from "./store";
 Vue.config.productionTip = false;
 
 // Adding the modal plugin
-Vue.use(VModal, { dynamic: true });
+Vue.use(VModal, { dynamic: true, dialog: true });
 
 new Vue({
   render: h => h(App),
