@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="shadow">
     <h1>Fonts</h1>
     <div class="fonts-container">
       <div class="font righteous" @click="changeFont('righteous')">Notetab</div>
