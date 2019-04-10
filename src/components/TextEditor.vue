@@ -24,7 +24,8 @@ export default {
 .editor {
   float: left;
   height: 100vh;
-  width: 95%;
+  /* width: auto; */
+  width: 60%;
   background: white;
 }
 .editor div {

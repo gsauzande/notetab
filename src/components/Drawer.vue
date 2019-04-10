@@ -21,6 +21,7 @@ export default {
   width: 20%;
   color: black;
   background: #f3f2f0;
+  overflow: hidden;
   padding-left: 20px;
   z-index: 99;
   /* background: green; */
