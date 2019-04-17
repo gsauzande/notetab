@@ -17,7 +17,12 @@
     >
       <img src="@/assets/images/md_small.png" class="settings-option-icon">
     </div>
-    <div :class="{highlight:isHighlighted('saved-files')}" class="settings-option" id="saved-files">
+    <div
+      :class="{highlight:isHighlighted('saved-files')}"
+      class="settings-option"
+      id="saved-files"
+      @click="handleClick('saved-files')"
+    >
       <img src="@/assets/images/cut-button-1.png" class="settings-option-icon">
     </div>
     <div :class="{highlight:isHighlighted('about')}" class="settings-option" id="about">
@@ -47,16 +52,12 @@ export default {
       this.$modal.show(MarkdownModal, {}, { height: "auto", top: "20vh" });
     },
     handleClick(clickedSetting) {
-      if (this.selectedSetting) {
+      if (this.selectedSetting === clickedSetting) {
         this.selectedSetting = null;
-        this.$emit("settingsClick", clickedSetting);
+        this.$emit("settingsClick", null);
       } else {
-        console.log("end", this.selectedSetting);
-        // Highlight the selected setting, all others keep the same opacity
-        // Remove shadows from side bar and keep it only on the selected option on the right, bottom and top
-        // Put shadow on the sidebar thing
-        this.$emit("settingsClick", clickedSetting);
         this.selectedSetting = clickedSetting;
+        this.$emit("settingsClick", clickedSetting);
       }
     }
   }
@@ -66,9 +67,9 @@ export default {
 .sidebar {
   float: left;
   height: 100vh;
-  width: 5%;
+  width: 5vw;
   color: white;
-  background: #f3f2f0;
+  background: #ffffff;
   margin-left: 4px;
 }
 
@@ -80,13 +81,13 @@ export default {
 }
 .highlight {
   opacity: 1 !important;
-  background: #ffefd0;
+  background: #ffffff;
   box-shadow: 1px 3px 2px -2px rgba(0, 0, 0, 0.75);
 }
 
 .settings-option:hover {
   cursor: pointer;
-  background: #ffefd0;
+  background: #ffffff;
   opacity: 1 !important;
 }
 .black {

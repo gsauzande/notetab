@@ -1,6 +1,6 @@
 <template>
   <div class="shadow">
-    <h1>Fonts</h1>
+    <div class="drawer-title">Fonts</div>
     <div class="fonts-container">
       <div class="font righteous" @click="changeFont('righteous')">
         Notetab
@@ -52,7 +52,11 @@ export default {
   computed: mapState(["currentFont"]),
   methods: {
     changeFont(fontName) {
-      this.$store.dispatch("setCurrentFont", fontName);
+      if (fontName === this.currentFont) {
+        this.$store.dispatch("setCurrentFont", "");
+      } else {
+        this.$store.dispatch("setCurrentFont", fontName);
+      }
     },
     isCurrentFont(fontName) {
       return this.currentFont === fontName;
@@ -79,7 +83,8 @@ export default {
   /* margin: 0 auto; */
 }
 .font:hover {
-  background: wheat;
+  background: var(--blue-1, grey);
+  color: var(--blue-6, grey);
 }
 </style>
 

@@ -18,9 +18,8 @@ export default {
 .drawer {
   float: left;
   height: 100vh;
-  width: 20%;
-  color: black;
-  background: #f3f2f0;
+  width: 15%;
+  background: #ffffff;
   overflow: hidden;
   padding-left: 20px;
   z-index: 99;

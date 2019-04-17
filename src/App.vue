@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <transition name="slide">
-      <drawer v-show="settingsComponent">
+    <transition name="fade">
+      <drawer v-if="settingsComponent">
         <component :is="settingsComponent"></component>
       </drawer>
     </transition>
     <sidebar @settingsClick="handleClick"></sidebar>
-    <text-editor></text-editor>
+    <text-editor @typing="toggleText"></text-editor>
+    <div class="saving" v-show="showText">Saving...</div>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import TextEditor from "./components/TextEditor.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Drawer from "./components/Drawer.vue";
 import Fonts from "./components/Fonts.vue";
+import SavedFiles from "./components/SavedFiles.vue";
 
 export default {
   name: "app",
@@ -22,10 +24,12 @@ export default {
     TextEditor,
     Sidebar,
     Drawer,
-    Fonts
+    Fonts,
+    SavedFiles
   },
   data() {
     return {
+      showText: false,
       settingsComponent: null
     };
   },
@@ -36,6 +40,12 @@ export default {
       } else {
         this.settingsComponent = payload;
       }
+    },
+    toggleText() {
+      this.showText = !this.showText;
+      setTimeout(() => {
+        this.showText = !this.showText;
+      }, 1000);
     }
   }
 };
@@ -43,17 +53,33 @@ export default {
 
 <style>
 body {
-  background: #93806c1a;
+  background: #ffffff;
   margin: 0px;
-  overflow-x: hidden;
+  overflow: hidden;
+  color: #314659;
+  --blue-1: #e6f7ff;
+  --blue-2: #bae7ff;
+  --blue-3: #91d5ff;
+  --blue-4: #69c0ff;
+  --blue-5: #40a9ff;
+  --blue-6: #1890ff;
+  --blue-7: #096dd9;
+  --blue-8: #0050b3;
+  --blue-9: #003a8c;
+  --blue-10: #002766;
 }
 #app {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: OpenSans, Helvetica, Arial, sans-serif;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
 }
-
+.drawer-title {
+  font-size: 25pt;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
 @font-face {
   font-family: Righteous;
   src: url("assets/fonts/Righteous-Regular.ttf");
@@ -73,6 +99,13 @@ body {
 @font-face {
   font-family: Ubuntu;
   src: url("assets/fonts/Ubuntu-Regular.ttf");
+}
+.saving {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 10pt;
+  opacity: 0.5;
 }
 .righteous {
   font-family: Righteous !important;

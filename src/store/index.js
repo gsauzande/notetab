@@ -7,28 +7,30 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    markup: "",
-    currentFont: ""
+    text: "",
+    currentFont: "",
+    currentFilename: ""
   },
   actions: {
-    setMarkdown(context, payload) {
-      context.commit("SET_MARKUP", payload);
+    setText(context, payload) {
+      context.commit("SET_TEXT", payload);
     },
     setCurrentFont(context, payload) {
       context.commit("SET_CURRENT_FONT", payload);
+    },
+    setCurrentFilename(context, payload) {
+      context.commit("SET_CURRENT_FILENAME", payload);
     }
   },
   mutations: {
-    SET_MARKUP(state, payload) {
-      state.markup = payload;
+    SET_TEXT(state, payload) {
+      state.text = payload;
     },
     SET_CURRENT_FONT(state, payload) {
       state.currentFont = payload;
-    }
-  },
-  getters: {
-    markup: state => {
-      return state.markup;
+    },
+    SET_CURRENT_FILENAME(state, payload) {
+      state.currentFilename = payload;
     }
   }
 });

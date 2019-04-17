@@ -36,10 +36,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(["markup"])
+    ...mapState(["text"])
   },
   created() {
-    this.markdown = this.turndown.turndown(this.markup);
+    this.markdown = this.turndown.turndown(this.text);
     let file = new Blob([this.markdown], { type: "text/markdown" });
     this.downloadUrl = URL.createObjectURL(file);
   },
@@ -74,7 +74,6 @@ export default {
 <style scoped>
 .markdown-container {
   padding: 20px;
-  background: #f4f2f0;
 }
 .title {
   color: black;
@@ -87,7 +86,6 @@ export default {
 .text {
   height: 40vh;
   width: 100%;
-  background: #f4f2f0;
   box-shadow: inset 0px 1px 4px -1px rgba(0, 0, 0, 0.75);
   margin-top: 1vh;
   border-radius: 2px;
@@ -100,7 +98,7 @@ a.button {
   display: inline-block;
   padding: 0.7em 1.4em;
   margin: 0 0.3em 0.3em 0;
-  border-radius: 0.15em;
+  border-radius: 4px;
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
@@ -108,7 +106,7 @@ a.button {
   font-weight: 400;
   color: #ffffff;
   font-size: 9pt;
-  background-color: #3369ff;
+  background-color: var(--blue-6, blue);
   box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
   text-align: center;
   position: relative;
