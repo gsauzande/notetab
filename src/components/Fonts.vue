@@ -3,7 +3,7 @@
     <div class="drawer-title">Fonts</div>
     <div class="fonts-container">
       <div class="font righteous" @click="changeFont('righteous')">
-        Notetab
+        writend
         <img
           src="@/assets/images/checkmark.png"
           class="checkmark-img"
@@ -11,7 +11,7 @@
         >
       </div>
       <div class="font open-sans" @click="changeFont('open-sans')">
-        Notetab
+        writend
         <img
           src="@/assets/images/checkmark.png"
           class="checkmark-img"
@@ -19,7 +19,7 @@
         >
       </div>
       <div class="font pacifico" @click="changeFont('pacifico')">
-        Notetab
+        writend
         <img
           src="@/assets/images/checkmark.png"
           class="checkmark-img"
@@ -27,7 +27,7 @@
         >
       </div>
       <div class="font traveling-typewriter" @click="changeFont('traveling-typewriter')">
-        Notetab
+        writend
         <img
           src="@/assets/images/checkmark.png"
           class="checkmark-img"
@@ -35,7 +35,7 @@
         >
       </div>
       <div class="font ubuntu" @click="changeFont('ubuntu')">
-        Notetab
+        writend
         <img
           src="@/assets/images/checkmark.png"
           class="checkmark-img"

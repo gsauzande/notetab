@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <div contenteditable="true" @keyup="onKeyUp" ref="myText" :class="currentFont || ''">{{ text }}</div>
+    <div contenteditable="true" @keyup="onKeyUp" ref="myText" :class="currentFont || ''"></div>
   </div>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
   },
   data: function() {
     return {
-      filename: `notetab_${Date.now().toString()}`
+      filename: `writend_${Date.now().toString()}`
     };
   },
   computed: mapState(["currentFont", "text", "currentFilename"]),
@@ -20,6 +20,7 @@ export default {
     onKeyUp() {
       this.$store.dispatch("setText", this.$refs.myText.innerHTML);
       // Save current text in storage
+      localStorage.removeItem(this.filename);
       localStorage.setItem(this.filename, this.$refs.myText.innerHTML);
       this.$emit("typing");
     }

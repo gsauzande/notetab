@@ -19,7 +19,7 @@ export default {
   data: function() {
     return {
       savedFiles: Object.keys(localStorage).filter(key =>
-        key.includes("notetab")
+        key.includes("writend")
       )
     };
   },

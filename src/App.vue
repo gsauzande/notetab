@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <transition name="fade">
-      <drawer v-if="settingsComponent">
-        <component :is="settingsComponent"></component>
-      </drawer>
-    </transition>
+    <drawer v-if="settingsComponent">
+      <component :is="settingsComponent"></component>
+    </drawer>
     <sidebar @settingsClick="handleClick"></sidebar>
     <text-editor @typing="toggleText"></text-editor>
     <div class="saving" v-show="showText">Saving...</div>

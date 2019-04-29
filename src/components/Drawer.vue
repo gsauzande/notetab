@@ -1,16 +1,25 @@
 <template>
   <div class="drawer">
+    <Box class="box" :pose="isVisible ? 'visible' : 'hidden'"/>
     <slot></slot>
   </div>
 </template>
 <script>
+import posed from "vue-pose";
 export default {
   name: "Drawer",
+  data: () => ({ isVisible: false }),
   props: {
     currentSettingsComponent: {
       type: Object,
       default: null
     }
+  },
+  components: {
+    Box: posed.div({
+      visible: { opacity: 1 },
+      hidden: { opacity: 0 }
+    })
   }
 };
 </script>

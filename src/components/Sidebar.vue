@@ -1,6 +1,9 @@
 <template>
   <div class="sidebar">
     <modals-container/>
+    <div class="logo">
+      <img src="@/assets/images/app_logo_big.png" alt="writend logo">
+    </div>
     <div
       :class="{highlight:isHighlighted('fonts')}"
       class="settings-option"
@@ -16,17 +19,6 @@
       @click="onMarkdownClick"
     >
       <img src="@/assets/images/md_small.png" class="settings-option-icon">
-    </div>
-    <div
-      :class="{highlight:isHighlighted('saved-files')}"
-      class="settings-option"
-      id="saved-files"
-      @click="handleClick('saved-files')"
-    >
-      <img src="@/assets/images/cut-button-1.png" class="settings-option-icon">
-    </div>
-    <div :class="{highlight:isHighlighted('about')}" class="settings-option" id="about">
-      <img src="@/assets/images/doubts-button.png" class="settings-option-icon">
     </div>
   </div>
 </template>
@@ -71,6 +63,16 @@ export default {
   color: white;
   background: #ffffff;
   margin-left: 4px;
+}
+.logo img {
+  height: 25px;
+  width: 25px;
+  margin: 0 auto;
+}
+.logo {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .option-icon {

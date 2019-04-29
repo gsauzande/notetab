@@ -32,7 +32,7 @@ export default {
       turndown: new TurdownService(),
       markdown: "",
       downloadUrl: "javascript:void(0)",
-      downloadFilename: `notetab_${Date.now()}.md`
+      downloadFilename: `writend_${Date.now()}.md`
     };
   },
   computed: {
