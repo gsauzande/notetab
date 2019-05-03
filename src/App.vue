@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <slideshow></slideshow>
     <drawer v-if="settingsComponent">
       <component :is="settingsComponent"></component>
     </drawer>
@@ -15,6 +16,7 @@ import Sidebar from "./components/Sidebar.vue";
 import Drawer from "./components/Drawer.vue";
 import Fonts from "./components/Fonts.vue";
 import SavedFiles from "./components/SavedFiles.vue";
+import Slideshow from "./components/Slideshow.vue";
 
 export default {
   name: "app",
@@ -23,7 +25,8 @@ export default {
     Sidebar,
     Drawer,
     Fonts,
-    SavedFiles
+    SavedFiles,
+    Slideshow
   },
   data() {
     return {
