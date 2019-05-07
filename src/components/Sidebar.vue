@@ -13,6 +13,14 @@
       <img src="@/assets/images/typographic-button.png" class="settings-option-icon">
     </div>
     <div
+      :class="{highlight:isHighlighted('shortcuts')}"
+      class="settings-option"
+      id="shortcuts"
+      @click="handleClick('Shortcuts')"
+    >
+      <img src="@/assets/images/doubts-button.png" class="settings-option-icon">
+    </div>
+    <div
       :class="{highlight:isHighlighted('markdown-export')}"
       class="settings-option"
       id="markdown-export"

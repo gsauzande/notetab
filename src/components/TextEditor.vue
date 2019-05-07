@@ -1,5 +1,6 @@
 <template>
   <div class="editor">
+    <span>__</span>
     <div contenteditable="true" @keyup="onKeyUp" ref="myText" :class="currentFont || ''"></div>
   </div>
 </template>
@@ -36,7 +37,7 @@ export default {
   min-width: 10vw;
   max-width: 60%;
   background: white;
-  padding-left: 10% !important;
+  padding-left: 2% !important;
   padding-top: 2%;
 }
 .editor div {

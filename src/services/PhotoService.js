@@ -18,9 +18,8 @@ PhotoService.prototype.getCuratedPhoto = function() {
         const randomNumber = Math.floor(
           Math.random() * (resultsPerPage - 0) + 0
         );
-        const imageURL = curatedImages.photos[randomNumber].src.landscape;
-        const parsedURL = imageURL;
-        resolve(parsedURL);
+        const image = curatedImages.photos[randomNumber];
+        resolve(image);
       })
       .catch(err => reject(err));
   });

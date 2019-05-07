@@ -5,7 +5,6 @@
   </div>
 </template>
 <script>
-import posed from "vue-pose";
 export default {
   name: "Drawer",
   data: () => ({ isVisible: false }),
@@ -14,12 +13,6 @@ export default {
       type: Object,
       default: null
     }
-  },
-  components: {
-    Box: posed.div({
-      visible: { opacity: 1 },
-      hidden: { opacity: 0 }
-    })
   }
 };
 </script>
@@ -32,7 +25,6 @@ export default {
   overflow: hidden;
   padding-left: 20px;
   z-index: 99;
-  /* background: green; */
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.19), 0 0px 1px rgba(0, 0, 0, 0.23);
 }
 </style>
